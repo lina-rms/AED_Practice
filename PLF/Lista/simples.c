@@ -149,6 +149,7 @@ int main(void)
 
     printf("Agora lista eh: ");
     imprime(lst);
+    
     printf("\n");
 }
 
