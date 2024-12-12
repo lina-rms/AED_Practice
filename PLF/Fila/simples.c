@@ -84,6 +84,22 @@ int verifica_fila(Fila *fila)
     return(fila->ini == NULL);
 }
 
+//libera a fila
+void libera(Fila *fila)
+{
+    FilaNo *p = fila->ini;
+
+    //enquanto não chegar no final
+    while(p != NULL)
+    {
+        FilaNo* temp = p->prox;
+        free(p); //libera os nós da fila
+        p = temp;
+    }
+    //libera a fila
+    free(fila);
+}
+
 void imprime(Fila *fila)
 {
     //ponteiro do tipo nó para percorrer a fila
