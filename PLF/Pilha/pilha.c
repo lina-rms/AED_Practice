@@ -89,6 +89,21 @@ void imprime(Pilha *p)
     }
 }
 
+void libera(Pilha *p)
+{
+    PilhaNo *no = p->prim;
+
+    //enquanto não chegar no final
+    while(no != NULL)
+    {
+        PilhaNo *temp = no->prox;
+        free(no); //libera cada nó da pilha
+        no = temp; 
+    }
+
+    free(p); //libera a pilha
+}
+
 int main(void)
 {
     int num;
