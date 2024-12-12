@@ -114,6 +114,21 @@ void lst_remove(Lista *lst, int num)
     }
 }
 
+void libera(Lista *lst)
+{
+    ListaNo *p = lst->prim;
+
+    //enquanto não chegar no final
+    while(p != NULL)
+    {
+        ListaNo *temp = p->prox;
+        free(p); //libera cada nó da pilha
+        p = temp; 
+    }
+
+    free(lst); //libera a pilha
+}
+
 int main(void)
 {
     int num, resp;
